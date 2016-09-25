@@ -1,35 +1,52 @@
 import msvcrt
 import time
-n=5
-m=0
-x=10
+ 
+n=6
+x=11
+r=6
 y=0
-r=5
 g=0
-print "press enter to start the game"
+print " Press enter key to start the game"
+
 raw_input()
 s_time=time.time()
-print "press a to move right"
-while(m<=n):
-	key=msvcrt.getch()
-	if key=="a":
-		m+=1
-		print "-->",
-print " press s to move down" 
-while(y<=x):
-	key=msvcrt.getch()
-	if key=="s":
-		y+=1
-		print "                    -->"
-print "                   ",
-		
-while(g<=r):
+print "Press d to move right"
+
+while(1):
 	key=msvcrt.getch()
 	if key=="d":
+		y+=1
+		print "-->" ,
+		if y==n:
+			print " Press s to Move down."
+			break
+	else:
+		print "You lost the game!"
+		exit(1)
+while(1):
+	key1=msvcrt.getch()
+	if key1=="s":
+		y+=1
+		print "                      | "
+		print "                      | "
+		print "                      V "
+		if y==x:
+			print "Press d to Move right." ,
+			break
+	else:
+		print "You lost the game!"
+		exit(1)     
+while(1):
+	key2=msvcrt.getch()
+	if key2=="d":
 		g+=1
-		print "-->",
-print "press d to move right"
+		print "-->" ,
+		if g==r:
+			break
+	else:
+		print "You lost the game!"
+		exit(1)
+
 time_elapsed=time.time()-s_time
-print "Congrats you have finished the Game"
-print "time taken is "+str(time_elapsed)
-	
+print "Congrats you have finished the game!"
+print "Time taken is "+str(time_elapsed)
